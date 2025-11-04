@@ -1,2 +1,2 @@
-test commit
-to see if it works
+AWS_CLI_AUTO_PROMPT=on-partial
+aws 
