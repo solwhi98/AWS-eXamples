@@ -10,3 +10,5 @@ BUCKET_NAME=$1
 
 aws s3api create-bucket --bucket $BUCKET_NAME \
 --create-bucket-configuration="LocationConstraint=eu-central-1" 
+
+#./s3_solwhi/bash-scripts/create-bucket ona-created-bucket 가 terminal에 들어가는 명령어 
