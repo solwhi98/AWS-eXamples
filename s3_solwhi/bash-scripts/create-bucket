@@ -1,1 +1,12 @@
-#!/usr/bin/env/bash
+#!/usr/bin/env bash
+
+# to check if there was at least one argument provided from the user
+if [ -z "$1" ]; then        # '$#' is a variable that counts how many arguments the user typed 이고 '-z $1'는 checks if the first input variable($1) is empty 
+    echo "Enter a bucket name. eg. ./bucket my-bucket-name"        #print
+    exit 1                                                         #stop the if statement immediately
+fi                                                                 # the end of if-statement 
+
+BUCKET_NAME=$1
+
+aws s3api create-bucket --bucket $BUCKET_NAME \
+--create-bucket-configuration="LocationConstraint=eu-central-1" 
