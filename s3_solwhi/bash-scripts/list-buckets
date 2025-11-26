@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "== listing buckets"
+
+aws s3 ls 
+
+#Terminal: ./s3_solwhi/bash-scripts/list-buckets
+

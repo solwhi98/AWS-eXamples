@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #where we'll store the files
-OUTPUT_DIR="/tmp/s3-bash-scripts"
+OUTPUT_DIR="/tmp/s3_solwhi-bash-scripts" 
 
 #creating output folder
 mkdir -p $OUTPUT_DIR 

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "== listing newest buckets"
+
+#aws s3 ls
+aws s3api list-buckets | jq -r '.Buckets | sort_by(.CreationDate) | reverse | .[0:5] | .[] | .Name'   #jq 명령어임. 이 정도는 
+                                                                            #읽을 줄 알아야한다 함. 
+echo "..."  
+
+#그냥 ls buckets 보다 이게 더 깔끔하긴 함 어느정도 조절도 가능하고 
+#Terminal: ./s3_solwhi/bash-scripts/newest-buckets 으로 이 파일 자체를 run 함 
