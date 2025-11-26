@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+echo "== creating a bucket"
 # to check if there was at least one argument provided from the user
 if [ -z "$1" ]; then        # '$#' is a variable that counts how many arguments the user typed 이고 '-z $1'는 checks if the first input variable($1) is empty 
     echo "Enter a bucket name. eg. ./bucket my-bucket-name"        #print
@@ -10,5 +10,6 @@ BUCKET_NAME=$1
 
 aws s3api create-bucket --bucket $BUCKET_NAME \
 --create-bucket-configuration="LocationConstraint=eu-central-1" 
+#--output text
 
 #./s3_solwhi/bash-scripts/create-bucket ona-created-bucket 가 terminal에 들어가는 명령어 

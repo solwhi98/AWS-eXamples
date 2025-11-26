@@ -1,1 +1,11 @@
 #!/usr/bin/env bash
+echo "== deleting bucket"
+
+if [ -z "$1" ]; then                                                # '-z $1' checks if the first input variable($1) is empty 
+    echo "Enter a bucket name. eg. ./bucket my-bucket-name"        #print
+    exit 1                                                         #stop the if statement immediately
+fi                                                                 # the end of if-statement 
+
+BUCKET_NAME=$1
+
+aws s3api delete-bucket --bucket $BUCKET_NAME \
