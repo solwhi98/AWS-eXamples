@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
-#where we'll store the files
-OUTPUT_DIR="/tmp/s3_solwhi-bash-scripts" 
+if [ -z "$1" ]; then
+    echo "There needs to be a bucket name"
+    exit 1
+fi
 
-#creating output folder
-mkdir -p $OUTPUT_DIR 
+if [ -z "$2" ]; then 
+    echo "There needs to be a filename"
+    exit 1
+fi
 
-#generating a random nmb to determine how many files to create
-NUM_FILE=$((RANDOM % 6+5))
+BUCKET_NAME=$1
+FILENAME=$2
 
-for((i=1; i<=NUM_FILE; i++)); do
-    #generating random file name
-    FILENAME=$OUTPUT_DIR/file_$i.txt"
+aws s3api put-object \
+--bucket $BUCKET_NAME \
+--key $FILENAME \
+--body $FILENAME
 
-    #generate random data and write to the file
-    dd if=/dev/urandom of="$FILENAME" bs=1024 count=$((random % 1024 + 1)) 2>/dev/null
-done
-
-tree $OUTPUT_DIR
