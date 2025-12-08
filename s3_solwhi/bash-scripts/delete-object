@@ -7,17 +7,11 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-BUCKET_NAME=$1
-{
-    "Objects": [
-        {
-            "Key"; "test1.txt"
-        }
-    ],
-    "Quiet": false
-}
+BUCKET_NAME=$1 
 
 aws s3api list-objects-v2 \
 --bucket $BUCKET_NAME \
 --query Contents[].Key \     
 | jq -n '{Objects: [inputs | .[] | {Key: .}]}'
+
+aws s3api delete-objects --bucket $BUCKET_NAME --delete
