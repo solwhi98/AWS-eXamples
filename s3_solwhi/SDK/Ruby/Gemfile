@@ -1,0 +1,10 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"     # rubygem is where it gets its' libraries from 
+
+# gem "rails"
+gem 'aws-sdk-s3'     
+gem 'pry'            # a debugging tool for making break points in ruby 
+gem 'nokogiri'         # for parsing api and other things 
+
+#from here, i typed in 'install bundle' in terminal and it downloaded a bundle of files 
