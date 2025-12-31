@@ -1,0 +1,9 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A test s3 BucketName
+
+Resources:
+  S3Bucket:
+  #https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/introduction.html
+    Type: 'AWS::S3::Bucket'
+    # No need to supply a bucket name as AWS will generate a random name for us   
+      
